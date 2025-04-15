@@ -7,14 +7,12 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import javax.servlet.MultipartConfigElement;
-import javax.servlet.annotation.MultipartConfig;
-
 @Configuration
 @ComponentScan("com.it")
 @EnableWebMvc   //开启springMvc辅助功能，解析Json、日期解析转换
-public class SpringConfig {
+public class SpringMvcConfig {
 
+    //解析器，文件上传
     @Bean
     public MultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();

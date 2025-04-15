@@ -1,7 +1,5 @@
 package com.it.config;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -17,7 +15,7 @@ public class ServletContainerConfig extends AbstractDispatcherServletInitializer
     @Override
     protected WebApplicationContext createServletApplicationContext() {
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-        applicationContext.register(SpringConfig.class);
+        applicationContext.register(SpringMvcConfig.class);
         return applicationContext;
     }
 
