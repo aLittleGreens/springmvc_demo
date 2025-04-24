@@ -54,6 +54,21 @@
             <scope>test</scope>
         </dependency>
 
+<!--   Open API是一个标准，它的主要作用是描述REST API，既可以作为文档给开发者阅读
+    http://localhost:80/swagger-ui.html
+    -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
+        </dependency>
+
+<!-- 数据类 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
