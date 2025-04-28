@@ -15,6 +15,9 @@
 
     <properties>
         <java.version>11</java.version>
+        <jdbc.url>jdbc:mysql://127.0.0.1:3306/sprint_db</jdbc.url>
+        <jdbc.username>root</jdbc.username>
+        <jdbc.password>ADMIN123</jdbc.password>
     </properties>
     <dependencies>
         <dependency>
@@ -94,6 +97,9 @@
             <id>env_dev</id>
             <properties>
                 <profile.active>dev</profile.active>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/sprint_db</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>ADMIN123</jdbc.password>
             </properties>
 
         </profile>
@@ -103,6 +109,9 @@
             <id>env_test</id>
             <properties>
                 <profile.active>test</profile.active>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/sprint_db</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>ADMIN123</jdbc.password>
             </properties>
 
         </profile>
@@ -112,6 +121,9 @@
             <id>env_pro</id>
             <properties>
                 <profile.active>pro</profile.active>
+                <jdbc.url>jdbc:mysql://8.134.82.72:3306/sprint_db</jdbc.url>
+                <jdbc.username>wenqian</jdbc.username>
+                <jdbc.password>Cai784921129.</jdbc.password>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
