@@ -8,7 +8,6 @@ import java.util.List;
 @Mapper
 public interface BookDao {
 
-    // 插入
     @Insert("insert into book (type,name,description) values(#{type},#{name},#{description})")
     int save(Book book);
 

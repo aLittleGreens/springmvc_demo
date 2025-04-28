@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.it</groupId>
+    <artifactId>maven_parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <spring.version>2.7.7</spring.version>
+        <jdbc.url>jdbc:mysql://127.0.0.1:3306/sprint_db</jdbc.url>
+
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.7</version>
+    </parent>
+
+
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--   Open API是一个标准，它的主要作用是描述REST API，既可以作为文档给开发者阅读
+            http://localhost:80/swagger-ui.html
+            -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.16</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <dependencyManagement>
+
+        <dependencies>
+<!--            继承者需要的话，需要自己引入-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>../maven_dao</module>
+        <module>../maven_po</module>
+        <module>..</module>
+    </modules>
+
+    <profiles>
+        <!--		开发环境-->
+        <profile>
+            <id>env_dev</id>
+            <properties>
+                <profile.active>dev</profile.active>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/sprint_db</jdbc.url>
+            </properties>
+
+        </profile>
+
+        <!--		测试环境-->
+        <profile>
+            <id>env_test</id>
+            <properties>
+                <profile.active>test</profile.active>
+                <jdbc.url>jdbc:mysql://127.1.1.1:3306/sprint_db</jdbc.url>
+            </properties>
+
+        </profile>
+
+        <!--		线上环境-->
+        <profile>
+            <id>env_pro</id>
+            <properties>
+                <profile.active>pro</profile.active>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/sprint_db</jdbc.url>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+    </profiles>
+
+</project>

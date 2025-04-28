@@ -1,9 +1,11 @@
 package com.it.service;
 
 import com.it.po.Book;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public interface BookService {
 
     boolean save(Book book);
